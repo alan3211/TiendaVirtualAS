@@ -11,7 +11,7 @@ public class Inicio extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset = UTF-8");
+        response.setContentType("te xt/html;charset = UTF-8");
         PrintWriter out = response.getWriter();
         out.println("<!DOCTYPE html>\n"
                 + "<html>\n"

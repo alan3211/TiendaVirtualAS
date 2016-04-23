@@ -72,7 +72,7 @@ public class Computacion extends HttpServlet {
                 + "                                     <div class=\"collapse navbar-collapse\" id=\"navbar-1\">\n"
                 + "                                             <ul class=\"nav navbar-nav\">\n"
                 + "                                                    <li class=\"active\"><a href=\"javascript:enviarC()\">Computación  <span class=\"glyphicon glyphicon-phone\"></span></a></li>\n"
-                + "                                                    <li><a href=\"javascript:enviarE()\">Eletrodomésticos  <span class=\"glyphicon glyphicon-lamp\"></span></a></li>\n"
+                + "                                                    <li><a href=\"javascript:enviarE()\">Electrodomésticos  <span class=\"glyphicon glyphicon-lamp\"></span></a></li>\n"
                 + "                                                    <li><a href=\"javascript:enviarM()\">Mueblería  <span class=\"glyphicon glyphicon-bed\"></span></a></li>\n"
                 + "                                        </ul>     \n"
                 + "                                     </div>\n"

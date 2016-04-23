@@ -70,67 +70,68 @@ public class Calcula extends HttpServlet {
                 + "                                                <p>Ticket de Compra</p>\n"
                 + "                                                <p style=\"left:50px;\">Concepto    Precio</p>");
         if (atributos[0] == null && cantidadreal[0] == 1) {
-        } else {
+        } else {            
             out.println("<p>MAC OSX                                     $ " + precios[0] * cantidadreal[0] + "</p>");
-            total += precios[0];
+            total += precios[0] * cantidadreal[0];
         }
         if (atributos[1] == null && cantidadreal[1] == 1) {
         } else {
             out.println("<p>Alienware                                   $" + precios[1] * cantidadreal[1] + "</p>");
-            total += precios[1];
+            total += precios[1] * cantidadreal[1];
         }
         if (atributos[2] == null && cantidadreal[2] == 1) {
         } else {
             out.println("<p>HP Pavilion                                 $" + precios[2] * cantidadreal[2] + "</p>");
-            total += precios[3];
+            total += precios[2] * cantidadreal[2];
         }
         if (atributos[3] == null && cantidadreal[3] == 1) {
         } else {
             out.println("<p>Samsung                                     $" + precios[3] * cantidadreal[3] + "</p>");
-            total += precios[3];
+            total += precios[3] * cantidadreal[3];
         }
         if (atributos[4] == null && cantidadreal[4] == 1) {
         } else {
             out.println("<p>Lavadora Samsung                 $" + precios[4] * cantidadreal[4] + "</p>");
-            total += precios[4];
+            total += precios[4] * cantidadreal[4];
         }
         if (atributos[5] == null && cantidadreal[5] == 1) {
         } else {
             out.println("<p>Licuadora Oster                        $" + precios[5] * cantidadreal[5] + "</p>");
-            total += precios[5];
+            total += precios[5] * cantidadreal[5];
         }
         if (atributos[6] == null && cantidadreal[6] == 1) {
         } else {
             out.println("<p>Microondas LG                           $" + precios[6] * cantidadreal[6] + "</p>");
-            total += precios[6];
+            total += precios[6] * cantidadreal[6];
         }
         if (atributos[7] == null && cantidadreal[7] == 1) {
         } else {
             out.println("<p>Refrigerador GE                          $" + precios[7] * cantidadreal[7] + "</p>");
-            total += precios[7];
+            total += precios[7] * cantidadreal[7];
         }
         if (atributos[8] == null && cantidadreal[8] == 1) {
         } else {
             out.println("<p>Cajonera                                       $" + precios[8] * cantidadreal[8] + "</p>");
-            total += precios[8];
+            total += precios[8] * cantidadreal[8];
         }
         if (atributos[9] == null && cantidadreal[9] == 1) {
         } else {
             out.println("<p>Repisa                                             $" + precios[9] * cantidadreal[9] + "</p>");
 
-            total += precios[9];
+            total += precios[9] * cantidadreal[9];
         }
         if (atributos[10] == null && cantidadreal[10] == 1) {
         } else {
             out.println("<p>Sofa Deluxe                                 $" + precios[10] * cantidadreal[10] + "</p>");
-            total += precios[10];
+            total += precios[10] * cantidadreal[11];
         }
         if (atributos[11] == null && cantidadreal[11] == 1) {
         } else {
             out.println("<p>Comedor simple                          $" + precios[11] * cantidadreal[11] + "</p>");
-            total += precios[11];
+            total += precios[11] * cantidadreal[11];
         }
-        out.println("                                    </div> ");
+        out.println("****************************");
+        out.println("<p>Total  $ "+total+"</p></div> ");
         if (total == 0) {
             out.println("<script>swal(\"No compraste nada :(\",\" \",\"error\")</script>");
         } else {
