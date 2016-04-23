@@ -18,18 +18,13 @@ public class Electrodomestico extends HttpServlet {
         String[] cant = new String[12];    //Valor de la cantidad       
         PrintWriter out = response.getWriter();
         HttpSession sesion = request.getSession();       
-        /*Recuperando atributos*/
+       /*Recuperando atributos*/        
         for (int i = 0; i < prod.length; i++) {
+            if(sesion.getAttribute("pr"+i) != null){
             prod[i] = (String) sesion.getAttribute("pr"+i); //Obteniendo el checkbox del producto
             cant[i] = (String) sesion.getAttribute("cantidad"+i); //Obteniendo la cantidad asociada
-        }
-        /*Estableciendo atributos*/
-        for (int i = 0; i < prod.length; i++) {
-            prod[i] = (String)request.getParameter("pr"+i);
-            cant[i] = (String)request.getParameter("cantidad"+i);
-            sesion.setAttribute("pr" + i, prod[i]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad"+i, cant[i]); // Estableciendo la cantidad ingresada
-        }
+            }   
+        }             
         out.println("<!DOCTYPE html>\n"
                 + "<html>\n"
                 + "    <head>\n"    
@@ -93,13 +88,10 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                    <p>Llevate esta lavadora  para un lavado increíble</p>\n"
                 + "                                                    <p>$9,000</p>\n"
                 + "                                                    <label for=\"pr4\">Agregar</label>");
-        if (prod[4] == null && cant[4] == null) {
-            if (prod[4] == null && cant[4] != null) {
-            } else {
+        if (prod[4] == null && cant[4] == null) {           
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr4\">");
                 out.println(" <label for=\"cantidad4\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad4\" size=\"1\">");
-            }
+                out.println("<input type=\"text\" name=\"cantidad4\" size=\"1\" value = \"1\">");            
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr4\"checked>");
             out.println(" <label for=\"cantidad4\" class=\"control-label\">Cantidad</label>");
@@ -112,13 +104,10 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                       <p>Para realizar tus jugos  tu gusto</p>\n"
                 + "                                                       <p>$2,000</p>\n"
                 + "                                                       <label for=\"pr5\">Agregar</label>");
-        if (prod[5] == null && cant[5] == null) {
-            if (prod[5] == null && cant[5] != null) {
-            } else {
+        if (prod[5] == null && cant[5] == null) {          
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr5\">");
                 out.println(" <label for=\"cantidad5\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad5\" size=\"1\">");
-            }
+                out.println("<input type=\"text\" name=\"cantidad5\" size=\"1\" value = \"1\">");            
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr5\"checked>");
             out.println(" <label for=\"cantidad5\" class=\"control-label\">Cantidad</label>");
@@ -131,13 +120,10 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                       <p>Ideal para oficina o simplemente en casa</p>\n"
                 + "                                                       <p>$3,000</p>\n"
                 + "                                                       <label for=\"pr6\">Agregar</label>");
-        if (prod[6] == null && cant[6] == null) {
-            if (prod[6] == null && cant[6] != null) {
-            } else {
+        if (prod[6] == null && cant[6] == null) {           
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr6\">");
                 out.println(" <label for=\"cantidad6\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad6\" size=\"1\">");
-            }
+                out.println("<input type=\"text\" name=\"cantidad6\" size=\"1\" value = \"1\">");            
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr6\"checked>");
             out.println(" <label for=\"cantidad6\" class=\"control-label\">Cantidad</label>");
@@ -150,13 +136,10 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                       <p>Para guardar tus alimentos con ahorro de energia</p>\n"
                 + "                                                       <p>$14,000</p>\n"
                 + "                                                       <label for=\"pr7\">Agregar</label>");
-        if (prod[7] == null && cant[7] == null) {
-            if (prod[7] == null && cant[7] != null) {
-            } else {
+        if (prod[7] == null && cant[7] == null) {           
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr7\">");
                 out.println(" <label for=\"cantidad7\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad7\" size=\"1\">");
-            }
+                out.println("<input type=\"text\" name=\"cantidad7\" size=\"1\" value = \"1\">");            
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr7\"checked>");
             out.println(" <label for=\"cantidad7\" class=\"control-label\">Cantidad</label>");
@@ -164,8 +147,14 @@ public class Electrodomestico extends HttpServlet {
         }
         for (int i = 0; i < prod.length; i++) {
                     if(i < 4 || i > 7){
-                            if(prod[i] == null) out.println("<input type=\"checkbox\" name=\"pr"+i+"\">\n");
-                            else out.println("<input type=\"checkbox\" name=\"pr"+i+"\" checked>\n");
+                            if(prod[i] == null){
+                                out.println("<input type=\"checkbox\" name=\"pr"+i+"\">\n");
+                                out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \"1\">"); 
+                            }
+                            else{
+                                out.println("<input type=\"checkbox\" name=\"pr"+i+"\" checked>\n");
+                                out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \""+cant[i]+"\">");
+                            }
                     }else continue;                                                 
          }             
         out.println("                 </div>\n"
@@ -186,7 +175,13 @@ public class Electrodomestico extends HttpServlet {
                 + "    </body>\n"
                 + "</html>"
     );
-        
+        /*Estableciendo atributos*/
+        for (int i = 0; i < prod.length; i++) {
+            prod[i] = (String)request.getParameter("pr"+i);
+            cant[i] = (String)request.getParameter("cantidad"+i);
+            sesion.setAttribute("pr" + i, prod[i]); // Estableciendo el checkbox marcado
+            sesion.setAttribute("cantidad"+i, cant[i]); // Estableciendo la cantidad ingresada
+        }
     }
     
     @Override

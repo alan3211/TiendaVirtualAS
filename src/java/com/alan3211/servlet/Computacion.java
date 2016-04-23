@@ -107,7 +107,7 @@ public class Computacion extends HttpServlet {
         if (prod[1] == null && cant[1] == null) {         
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr1\">");
                 out.println(" <label for=\"cantidad1\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad1\" size=\"1\">");           
+                out.println("<input type=\"text\" name=\"cantidad1\" size=\"1\" value = \"1\">");           
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr1\"checked>");
             out.println(" <label for=\"cantidad1\" class=\"control-label\">Cantidad</label>");
@@ -123,7 +123,7 @@ public class Computacion extends HttpServlet {
         if (prod[2] == null && cant[2] == null) {          
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr2\">");
                 out.println(" <label for=\"cantidad2\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad2\" size=\"1\">");
+                out.println("<input type=\"text\" name=\"cantidad2\" size=\"1\" value = \"1\">");
             
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr2\"checked>");
@@ -140,7 +140,7 @@ public class Computacion extends HttpServlet {
         if (prod[3] == null && cant[3] == null) {          
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr3\">");
                 out.println(" <label for=\"cantidad3\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad3\" size=\"1\">");           
+                out.println("<input type=\"text\" name=\"cantidad3\" size=\"1\" value = \"1\">");           
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr3\"checked>");
             out.println(" <label for=\"cantidad3\" class=\"control-label\">Cantidad</label>");
@@ -149,8 +149,10 @@ public class Computacion extends HttpServlet {
         for (int i = 4; i < prod.length; i++) {                               
                             if(prod[i] == null){
                                 out.println("<input type=\"checkbox\" name=\"pr"+i+"\" >\n");
+                                out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \"1\">");   
                             }else{
                                 out.println("<input type=\"checkbox\" name=\"pr"+i+"\" checked>\n");
+                                out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \""+cant[i]+"\">");   
                             }
         }        
         out.println("                             </div> \n"

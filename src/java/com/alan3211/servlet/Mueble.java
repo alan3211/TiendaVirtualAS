@@ -18,11 +18,13 @@ public class Mueble extends HttpServlet {
         String[] cant = new String[12];    //Valor de la cantidad     
         PrintWriter out = response.getWriter();
         HttpSession sesion = request.getSession();       
-        /*Recuperando atributos*/
+        /*Recuperando atributos*/        
         for (int i = 0; i < prod.length; i++) {
-            prod[i] = (String) sesion.getAttribute(prod[i]); //Obteniendo el checkbox del producto
-            cant[i] = (String) sesion.getAttribute(cant[i]); //Obteniendo la cantidad asociada
-        }
+            if(sesion.getAttribute("pr"+i) != null){
+            prod[i] = (String) sesion.getAttribute("pr"+i); //Obteniendo el checkbox del producto
+            cant[i] = (String) sesion.getAttribute("cantidad"+i); //Obteniendo la cantidad asociada
+            }   
+        }             
         
         out.println("<!DOCTYPE html>\n"
                 + "<html>\n"
@@ -85,17 +87,14 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Llevatelo para que tu televisión se vea espectacular.</p>\n"
                 + "                                                           <p>$8,000</p>\n"
                 + "                                                           <label for=\"pr8\">Agregar</label>");
-        if (prod[8] == null && cant[8] == null) {
-            if (prod[8] == null && cant[8] != null) {
-            } else {
+        if (prod[8] == null && cant[8] == null) {         
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr8\">");
-                out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad\" size=\"1\">");
-            }
+                out.println(" <label for=\"cantidad8\" class=\"control-label\">Cantidad</label>");
+                out.println("<input type=\"text\" name=\"cantidad8\" size=\"1\" value = \"1\">");            
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr8\"checked>");
-            out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[8] + "'>");           
+            out.println(" <label for=\"cantidad8\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad8\" size=\"1\" value = '" + cant[8] + "'>");           
         }
         out.println("                                                </div>\n"
                 + "                                                <div class=\"col-md-3\">\n"
@@ -104,17 +103,15 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Para guardar tus libros o documentos atu gusto</p>\n"
                 + "                                                           <p>$2,800</p>\n"
                 + "                                                           <label for=\"pr9\">Agregar</label>");
-        if (prod[9] == null && cant[9] == null) {
-            if (prod[9] == null && cant[9] != null) {
-            } else {
+        if (prod[9] == null && cant[9] == null) {        
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr9\">");
-                out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad\" size=\"1\">");
-            }
+                out.println(" <label for=\"cantidad9\" class=\"control-label\">Cantidad</label>");
+                out.println("<input type=\"text\" name=\"cantidad9\" size=\"1\" value = \"1\">");
+            
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr9\"checked>");
-            out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[9] + "'>");            
+            out.println(" <label for=\"cantidad9\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad9\" size=\"1\" value = '" + cant[9] + "'>");            
         }
         out.println("                                                </div>\n"
                 + "                                                <div class=\"col-md-3\">\n"
@@ -123,17 +120,15 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Ideal para que tu  casa se vea elegante</p>\n"
                 + "                                                           <p>$7,000</p>\n"
                 + "                                                           <label for=\"pr10\">Agregar</label>");
-        if (prod[10] == null && cant[10] == null) {
-            if (prod[10] == null && cant[10] != null) {
-            } else {
+        if (prod[10] == null && cant[10] == null) {          
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr10\">");
-                out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad\" size=\"1\">");
-            }
+                out.println(" <label for=\"cantidad10\" class=\"control-label\">Cantidad</label>");
+                out.println("<input type=\"text\" name=\"cantidad10\" size=\"1\" value = \"1\">");
+            
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr10\"checked>");
-            out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[10] + "'>");           
+            out.println(" <label for=\"cantidad10\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad10\" size=\"1\" value = '" + cant[10] + "'>");           
         }
         out.println("                                                </div>\n"
                 + "                                                <div class=\"col-md-3\">\n"
@@ -142,23 +137,22 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Especialmente para tu sala moderna</p>\n"
                 + "                                                           <p>$10,000</p>\n"
                 + "                                                           <label for=\"pr11\">Agregar</label>");
-        if (prod[11] == null && cant[11] == null) {
-            if (prod[11] == null && cant[11] != null) {
-            } else {
+        if (prod[11] == null && cant[11] == null) {          
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr11\">");
-                out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad\" size=\"1\">");
-            }
+                out.println(" <label for=\"cantidad11\" class=\"control-label\">Cantidad</label>");
+                out.println("<input type=\"text\" name=\"cantidad11\" size=\"1\" value = \"1\">");           
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr11\"checked>");
-            out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[11] + "'>");           
+            out.println(" <label for=\"cantidad11\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad11\" size=\"1\" value = '" + cant[11] + "'>");           
         }
         for (int i = 0; i < 8; i++) {
             if (prod[i] == null) {
                 out.println("<input type=\"checkbox\" name=\"pr" + i + "\" >\n");
+                  out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \"1\">"); 
             } else {
                 out.println("<input type=\"checkbox\" name=\"pr" + i + "\" checked>\n");
+                out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \""+cant[i]+"\">");
             }
         }
         out.println("                                                </div>\n"
