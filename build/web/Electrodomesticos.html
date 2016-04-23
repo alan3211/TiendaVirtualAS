@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="author" content="Alan Hernandez">
+        <meta name="description" content="Tienda Virtual">
+        <meta name="keywords" content="Tienda Virtual Alan WAD">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta charset="UTF-8">              
+        <title>::::WAD-Store::::</title>
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css"/>        
+    </head>
+    <body>
+            <!--Encabezado-->
+                <header>
+                        <div class="container">                  
+                                        <img src="./img/logo.png" alt="Logo" class="Logo img-rounded img-responsive"/>
+                                        <h1 class="bienvenida text-left">Bienvenido al Departamento de Electrodomesticos</h1>                
+                                        <p class="slogan text-left">Aquí encontrarás los productos más modernos del mercado.</p>
+                                        <a href="javascript:Calcula();" class="enlaces col-sm-2"><span class="glyphicon glyphicon-log-out"></span>CheckOut</a>                                       
+                        </div>                       
+                </header>                       
+                <!--Navegacion-->
+                <div class="container">                
+                        <nav class=" navbar navbar-default nav-justified">
+                                 <div class="container-fluid">
+                                     <div class="navbar-header">
+                                         <button type="button" class="navbar-toggle collapse" data-toggle="collapse" data-target="#navbar-1">
+                                             <span class="sr-only">Departamentos</span>
+                                             <span class = "icon-bar ">Computación</span>
+                                             <span class = "icon-bar">Electrodomésticos</span>
+                                             <span class = "icon-bar">Mueblería</span>
+                                         </button>
+                                         <a href="/Inicio" class="navbar-brand">Departamentos</a>
+                                     </div>
+                                     
+                                     <div class="collapse navbar-collapse" id="navbar-1">
+                                             <ul class="nav navbar-nav">
+                                                    <li ><a href="javascript:enviarC()">Computación  <span class="glyphicon glyphicon-headphones"></span></a></li>
+                                                    <li class="active"><a href="javascript:enviarE()">Eletrodomésticos  <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                                                    <li><a href="javascript:enviarM()">Mueblería  <span class="glyphicon glyphicon-bookmark"></span></a></li>
+                                        </ul>     
+                                     </div>
+                                 </div>
+                            </nav>
+                </div>
+            <br>
+            <br>
+            <br>                
+                
+        <!--Seccion Principal-->
+       <div class="container">                   
+                        <section class="main row">
+                                    <form method="POST" action="Calcula" name="depa">             
+                                            <div class="col-md-3">                         
+                                                    <p>Lavadora Samsung</p>
+                                                    <img src="./Electrodomestico/lavadorasamsung.jpg" alt="Lavadora" width="230" height="175">
+                                                    <p>Llevate esta lavadora  para un lavado increíble</p>
+                                                    <p>$9,000</p>
+                                                    <label for="pr5">Agregar</label>
+                                                    <input type="checkbox" name="pr5">
+                                                    <label for="cantidad" class="control-label">Cantidad</label>
+                                                    <input type="text" name="cantidad" size="1">                                 
+                                            </div>
+                                            
+                                            <div class="col-md-3">
+                                                    <p>Licuadora Oster</p>
+                                                      <img src="./Electrodomestico/licuadoraoster.jpg" alt="Licuadora Oster" width="230" height="175">
+                                                       <p>Para realizar tus jugos  tu gusto</p>
+                                                       <p>$2,000</p>
+                                                       <label for="pr6">Agregar</label>
+                                                       <input type="checkbox" name="pr6">
+                                                      <label for="cantidad" class="control-label">Cantidad</label>
+                                                      <input type="text" name="cantidad" size="1">             
+                                            </div>
+                                            <div class="col-md-3">
+                                                       <p>Microondas LG</p>
+                                                      <img src="./Electrodomestico/microondaslg.jpg" alt="Microondas" width="230" height="175">
+                                                       <p>Ideal para oficina o simplemente en casa</p>
+                                                       <p>$3,000</p>
+                                                       <label for="pr7">Agregar</label>
+                                                       <input type="checkbox" name="pr7">
+                                                       <label for="cantidad" class="control-label">Cantidad</label>
+                                                       <input type="text" name="cantidad" size="1">                  
+                                            </div>
+                                            <div class="col-md-3">
+                                                        <p>Refrigerador GE</p>
+                                                      <img src="./Electrodomestico/refrige.jpg" alt="Refrigerador GE" width="230" height="175">
+                                                       <p>Para guardar tus alimentos con ahorro de energia</p>
+                                                       <p>$14,000</p>
+                                                       <label for="pr8">Agregar</label>
+                                                       <input type="checkbox" name="pr8">
+                                                       <label for="cantidad" class="control-label">Cantidad</label>
+                                                       <input type="text" name="cantidad" size="1">                 
+                                            </div>
+                            </form>  
+                    </section>
+        </div>
+           <br>
+            <br>
+            <br>
+            <br>  
+            <!--Pie de Pagina-->
+            <footer>
+                    <div class="container">                            
+                                    <p class="text-right piepag">WAD-Store &COPY; Todos los derechos reservados 2016</p>                                            
+                    </div>
+            </footer>
+        <!--Scripts-->
+        <script src="./js/jquery-2.2.3.min.js"></script>
+        <script src="js/Enviar.js"></script>             
+    </body>
+</html>

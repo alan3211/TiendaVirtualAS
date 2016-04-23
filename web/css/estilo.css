@@ -1,0 +1,57 @@
+body{
+    font-family: "Century Gothic";    
+    font-size: 12px;
+}
+header,footer{
+    background: #377ee8;
+    color: #FFF;    
+}
+
+.Logo{
+    width: 80px;
+    height: 80px;
+}
+
+.Tienda{
+    width: 200px;
+    height: 200px;
+}
+
+.enlaces{
+    font-family: "Century Gothic";
+    color: #FFF;
+    position: relative;
+    left: 1050px;
+    top: -50px;    
+}
+.bienvenida{    
+    position: absolute;
+    left: 200px;
+    top:10px;
+}
+.slogan{
+    color: #FFF;
+    font-size: medium;
+}
+.descripcion{
+    font-family: "Century Gothic";
+    font-size: x-large;
+    margin-top: 80px; 
+    margin-bottom: 50px; 
+}
+.piepag{
+      font-family: "Century Gothic";
+    font-size: x-large; 
+}
+
+.boton{
+    background-color: #0e82ef;    
+}
+
+.ticket{ 
+    color: #FFF;
+    font-size: 15px;
+    width: 300px;
+    height: 500px;
+    background: #0d47a1;
+}
