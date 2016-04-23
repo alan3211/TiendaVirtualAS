@@ -70,9 +70,9 @@ public class Mueble extends HttpServlet {
                 + "                                     \n"
                 + "                                    <div class=\"collapse navbar-collapse\" id=\"navbar-1\">\n"
                 + "                                        <ul class=\"nav navbar-nav\">\n"
-                + "                                            <li><a href=\"javascript:enviarC()\">Computación  <span class=\"glyphicon glyphicon-headphones\"></span></a></li>\n"
-                + "                                            <li><a href=\"javascript:enviarE()\">Eletrodomésticos  <span class=\"glyphicon glyphicon-shopping-cart\"></span></a></li>\n"
-                + "                                            <li class=\"active\"><a href=\"javascript:enviarM()\">Mueblería  <span class=\"glyphicon glyphicon-bookmark\"></span></a></li>\n"
+                + "                                            <li><a href=\"javascript:enviarC()\">Computación  <span class=\"glyphicon glyphicon-phone\"></span></a></li>\n"
+                + "                                            <li><a href=\"javascript:enviarE()\">Eletrodomésticos  <span class=\"glyphicon glyphicon-lamp\"></span></a></li>\n"
+                + "                                            <li class=\"active\"><a href=\"javascript:enviarM()\">Mueblería  <span class=\"glyphicon glyphicon-bed\"></span></a></li>\n"
                 + "                                        </ul>     \n"
                 + "                                     </div>\n"
                 + "                                 </div>\n"
@@ -189,8 +189,7 @@ public class Mueble extends HttpServlet {
                 + "                    <div class=\"container\">                            \n"
                 + "                                    <p class=\"text-right piepag\">WAD-Store &COPY; Todos los derechos reservados 2016</p>                                            \n"
                 + "                    </div>\n"
-                + "            </footer>\n"
-                + "        <!--Scripts-->\n"
+                + "            </footer>\n"                
                 + "    </body>\n"
                 + "</html>");
 
