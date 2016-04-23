@@ -84,7 +84,7 @@ public class Mueble extends HttpServlet {
                 + "      <!--Seccion Principal-->\n"
                 + "       <div class=\"container\">                   \n"
                 + "                        <section class=\"main row\">\n"
-                + "                                    <form method=\"POST\" action=\"Calcula\" name=\"depa\">                     \n"
+                + "                                    <form method=\"GET\" action=\"Calcula\" name=\"depa\">                     \n"
                 + "                                                <div class=\"col-md-3\">                         \n"
                 + "                                                          <p>Cajonera</p>\n"
                 + "                                                          <img src=\"./Muebles/mueble1.jpg\" alt=\"Cajonera\" width=\"230\" height=\"175\">\n"

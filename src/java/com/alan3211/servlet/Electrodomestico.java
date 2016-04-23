@@ -86,7 +86,7 @@ public class Electrodomestico extends HttpServlet {
                 + "        <!--Seccion Principal-->\n"
                 + "       <div class=\"container\">                   \n"
                 + "                        <section class=\"main row\">\n"
-                + "                                    <form method=\"POST\" action=\"Calcula\" name=\"depa\">             \n"
+                + "                                    <form method=\"GET\" action=\"Calcula\" name=\"depa\">             \n"
                 + "                                            <div class=\"col-md-3\">                         \n"
                 + "                                                    <p>Lavadora Samsung</p>\n"
                 + "                                                    <img src=\"./Electrodomestico/lavadorasamsung.jpg\" alt=\"Lavadora\" width=\"230\" height=\"175\">\n"
