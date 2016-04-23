@@ -23,13 +23,7 @@ public class Mueble extends HttpServlet {
             prod[i] = (String) sesion.getAttribute(prod[i]); //Obteniendo el checkbox del producto
             cant[i] = (String) sesion.getAttribute(cant[i]); //Obteniendo la cantidad asociada
         }
-        /*Estableciendo atributos*/
-        for (int i = 0; i < prod.length; i++) {
-            prod[i] = (String)request.getParameter("pr"+i);
-            cant[i] = (String)request.getParameter("cantidad"+i);
-            sesion.setAttribute("pr" + i, prod[i]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad"+i, cant[i]); // Estableciendo la cantidad ingresada
-        }
+        
         out.println("<!DOCTYPE html>\n"
                 + "<html>\n"
                 + "    <head>\n"
@@ -84,14 +78,14 @@ public class Mueble extends HttpServlet {
                 + "      <!--Seccion Principal-->\n"
                 + "       <div class=\"container\">                   \n"
                 + "                        <section class=\"main row\">\n"
-                + "                                    <form method=\"GET\" action=\"Calcula\" name=\"depa\">                     \n"
+                + "                                    <form method=\"POST\" action=\"Calcula\" name=\"depa\">                     \n"
                 + "                                                <div class=\"col-md-3\">                         \n"
                 + "                                                          <p>Cajonera</p>\n"
                 + "                                                          <img src=\"./Muebles/mueble1.jpg\" alt=\"Cajonera\" width=\"230\" height=\"175\">\n"
                 + "                                                           <p>Llevatelo para que tu televisión se vea espectacular.</p>\n"
                 + "                                                           <p>$8,000</p>\n"
                 + "                                                           <label for=\"pr8\">Agregar</label>");
-        if (prod[8] == null || cant[8] == null) {
+        if (prod[8] == null && cant[8] == null) {
             if (prod[8] == null && cant[8] != null) {
             } else {
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr8\">");
@@ -101,9 +95,7 @@ public class Mueble extends HttpServlet {
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr8\"checked>");
             out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[8] + "'>");
-             sesion.setAttribute("pr8", prod[8]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad8", cant[8]); // Estableciendo la cantidad ingresada
+            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[8] + "'>");           
         }
         out.println("                                                </div>\n"
                 + "                                                <div class=\"col-md-3\">\n"
@@ -112,7 +104,7 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Para guardar tus libros o documentos atu gusto</p>\n"
                 + "                                                           <p>$2,800</p>\n"
                 + "                                                           <label for=\"pr9\">Agregar</label>");
-        if (prod[9] == null || cant[9] == null) {
+        if (prod[9] == null && cant[9] == null) {
             if (prod[9] == null && cant[9] != null) {
             } else {
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr9\">");
@@ -122,9 +114,7 @@ public class Mueble extends HttpServlet {
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr9\"checked>");
             out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[9] + "'>");
-             sesion.setAttribute("pr9", prod[9]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad9", cant[9]); // Estableciendo la cantidad ingresada
+            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[9] + "'>");            
         }
         out.println("                                                </div>\n"
                 + "                                                <div class=\"col-md-3\">\n"
@@ -133,7 +123,7 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Ideal para que tu  casa se vea elegante</p>\n"
                 + "                                                           <p>$7,000</p>\n"
                 + "                                                           <label for=\"pr10\">Agregar</label>");
-        if (prod[10] == null || cant[10] == null) {
+        if (prod[10] == null && cant[10] == null) {
             if (prod[10] == null && cant[10] != null) {
             } else {
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr10\">");
@@ -143,9 +133,7 @@ public class Mueble extends HttpServlet {
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr10\"checked>");
             out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[10] + "'>");
-             sesion.setAttribute("pr10", prod[10]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad10", cant[10]); // Estableciendo la cantidad ingresada
+            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[10] + "'>");           
         }
         out.println("                                                </div>\n"
                 + "                                                <div class=\"col-md-3\">\n"
@@ -154,7 +142,7 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Especialmente para tu sala moderna</p>\n"
                 + "                                                           <p>$10,000</p>\n"
                 + "                                                           <label for=\"pr11\">Agregar</label>");
-        if (prod[11] == null || cant[11] == null) {
+        if (prod[11] == null && cant[11] == null) {
             if (prod[11] == null && cant[11] != null) {
             } else {
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr11\">");
@@ -164,9 +152,7 @@ public class Mueble extends HttpServlet {
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr11\"checked>");
             out.println(" <label for=\"cantidad\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[11] + "'>");
-             sesion.setAttribute("pr11", prod[11]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad11", cant[11]); // Estableciendo la cantidad ingresada
+            out.println("<input type=\"text\" name=\"cantidad\" size=\"1\" value = '" + cant[11] + "'>");           
         }
         for (int i = 0; i < 8; i++) {
             if (prod[i] == null) {
@@ -192,7 +178,13 @@ public class Mueble extends HttpServlet {
                 + "            </footer>\n"                
                 + "    </body>\n"
                 + "</html>");
-
+        /*Estableciendo atributos*/
+        for (int i = 0; i < prod.length; i++) {
+            prod[i] = (String)request.getParameter("pr"+i);
+            cant[i] = (String)request.getParameter("cantidad"+i);
+            sesion.setAttribute("pr" + i, prod[i]); // Estableciendo el checkbox marcado
+            sesion.setAttribute("cantidad"+i, cant[i]); // Estableciendo la cantidad ingresada
+        }
     }
 
     @Override

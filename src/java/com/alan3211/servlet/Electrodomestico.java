@@ -86,14 +86,14 @@ public class Electrodomestico extends HttpServlet {
                 + "        <!--Seccion Principal-->\n"
                 + "       <div class=\"container\">                   \n"
                 + "                        <section class=\"main row\">\n"
-                + "                                    <form method=\"GET\" action=\"Calcula\" name=\"depa\">             \n"
+                + "                                    <form method=\"POST\" action=\"Calcula\" name=\"depa\">             \n"
                 + "                                            <div class=\"col-md-3\">                         \n"
                 + "                                                    <p>Lavadora Samsung</p>\n"
                 + "                                                    <img src=\"./Electrodomestico/lavadorasamsung.jpg\" alt=\"Lavadora\" width=\"230\" height=\"175\">\n"
                 + "                                                    <p>Llevate esta lavadora  para un lavado increíble</p>\n"
                 + "                                                    <p>$9,000</p>\n"
                 + "                                                    <label for=\"pr4\">Agregar</label>");
-        if (prod[4] == null || cant[4] == null) {
+        if (prod[4] == null && cant[4] == null) {
             if (prod[4] == null && cant[4] != null) {
             } else {
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr4\">");
@@ -112,7 +112,7 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                       <p>Para realizar tus jugos  tu gusto</p>\n"
                 + "                                                       <p>$2,000</p>\n"
                 + "                                                       <label for=\"pr5\">Agregar</label>");
-        if (prod[5] == null || cant[5] == null) {
+        if (prod[5] == null && cant[5] == null) {
             if (prod[5] == null && cant[5] != null) {
             } else {
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr5\">");
@@ -122,9 +122,7 @@ public class Electrodomestico extends HttpServlet {
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr5\"checked>");
             out.println(" <label for=\"cantidad5\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad5\" size=\"1\" value = '" + cant[5] + "'>");
-             sesion.setAttribute("pr5", prod[5]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad5", cant[5]); // Estableciendo la cantidad ingresada
+            out.println("<input type=\"text\" name=\"cantidad5\" size=\"1\" value = '" + cant[5] + "'>");            
         }
         out.println("                                </div>\n"
                 + "                                            <div class=\"col-md-3\">\n"
@@ -133,7 +131,7 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                       <p>Ideal para oficina o simplemente en casa</p>\n"
                 + "                                                       <p>$3,000</p>\n"
                 + "                                                       <label for=\"pr6\">Agregar</label>");
-        if (prod[6] == null || cant[6] == null) {
+        if (prod[6] == null && cant[6] == null) {
             if (prod[6] == null && cant[6] != null) {
             } else {
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr6\">");
@@ -152,7 +150,7 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                       <p>Para guardar tus alimentos con ahorro de energia</p>\n"
                 + "                                                       <p>$14,000</p>\n"
                 + "                                                       <label for=\"pr7\">Agregar</label>");
-        if (prod[7] == null || cant[7] == null) {
+        if (prod[7] == null && cant[7] == null) {
             if (prod[7] == null && cant[7] != null) {
             } else {
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr7\">");

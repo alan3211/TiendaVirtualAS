@@ -24,14 +24,7 @@ public class Computacion extends HttpServlet {
             prod[i] = (String) sesion.getAttribute("pr"+i); //Obteniendo el checkbox del producto
             cant[i] = (String) sesion.getAttribute("cantidad"+i); //Obteniendo la cantidad asociada
             }   
-        }
-        /*Estableciendo atributos*/
-        for (int i = 0; i < prod.length; i++) {
-            prod[i] = (String)request.getParameter("pr"+i);
-            cant[i] = (String)request.getParameter("cantidad"+i);
-            sesion.setAttribute("pr" + i, prod[i]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad"+i, cant[i]); // Estableciendo la cantidad ingresada
-        }
+        }        
          
         out.println("<!DOCTYPE html>\n"
                 + "<html>\n"
@@ -88,20 +81,17 @@ public class Computacion extends HttpServlet {
                 + "        <!--Seccion Principal-->\n"
                 + "        <div class=\"container\">                   \n"
                 + "                        <section class=\"main row\">\n"
-                + "                                    <form method=\"GET\" action=\"Calcula\" name=\"depa\">\n"
+                + "                                    <form method=\"POST\" action=\"Calcula\" name=\"depa\">\n"
                 + "                                                    <div class=\"col-md-3\">                         \n"
                 + "                                                              <p>Computadora MAC</p>\n"
                 + "                                                              <img src=\"./Computadoras/macos.jpg\" alt=\"Mac OSx\" >\n"
                 + "                                                               <p>Ideal para las personas muy capacitadas en desarrollo profesional</p>\n"
                 + "                                                               <p>$25,000</p>\n"
                 + "                                                               <label for=\"pr0\">Agregar</label>\n");
-        if (prod[0] == null && cant[0] == null) {
-            if (prod[0] == null && cant[0] != null) {
-            } else {
+        if (prod[0] == null && cant[0] == null) {           
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr0\">");
                 out.println(" <label for=\"cantidad0\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad0\" size=\"1\" value = \"1\">");
-            }
+                out.println("<input type=\"text\" name=\"cantidad0\" size=\"1\" value = \"1\">");         
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr0\"checked>");
             out.println(" <label for=\"cantidad0\" class=\"control-label\">Cantidad</label>");
@@ -114,13 +104,10 @@ public class Computacion extends HttpServlet {
                 + "                                                                <p>Experimenta el poder de esta computadora para juegos</p>\n"
                 + "                                                                <p>$29,000</p>\n"
                 + "                                                                <label for=\"pr1\">Agregar</label>");
-        if (prod[1] == null && cant[1] == null) {
-            if (prod[1] == null && cant[1] != null) {
-            } else {
+        if (prod[1] == null && cant[1] == null) {         
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr1\">");
                 out.println(" <label for=\"cantidad1\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad1\" size=\"1\" value = \"1\">");
-            }
+                out.println("<input type=\"text\" name=\"cantidad1\" size=\"1\">");           
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr1\"checked>");
             out.println(" <label for=\"cantidad1\" class=\"control-label\">Cantidad</label>");
@@ -133,13 +120,11 @@ public class Computacion extends HttpServlet {
                 + "                                                                <p>Prueba esta computadora para oficina, o simplemente para casa</p>\n"
                 + "                                                                <p>$12,000</p>\n"
                 + "                                                                <label for=\"pr2\">Agregar</label>");
-        if (prod[2] == null && cant[2] == null) {
-            if (prod[2] == null && cant[2] != null) {
-            } else {
+        if (prod[2] == null && cant[2] == null) {          
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr2\">");
                 out.println(" <label for=\"cantidad2\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad2\" size=\"1\" value = \"1\">");
-            }
+                out.println("<input type=\"text\" name=\"cantidad2\" size=\"1\">");
+            
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr2\"checked>");
             out.println(" <label for=\"cantidad2\" class=\"control-label\">Cantidad</label>");
@@ -152,13 +137,10 @@ public class Computacion extends HttpServlet {
                 + "                                                               <p>Economica y simple para trabajos de la escuela de los niños</p>\n"
                 + "                                                               <p>$8,000</p>\n"
                 + "                                                               <label for=\"pr3\">Agregar</label>");
-        if (prod[3] == null && cant[3] == null) {
-            if (prod[3] == null && cant[3] != null) {
-            } else {
+        if (prod[3] == null && cant[3] == null) {          
                 out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr3\">");
                 out.println(" <label for=\"cantidad3\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad3\" size=\"1\" value = \"1\">");
-            }
+                out.println("<input type=\"text\" name=\"cantidad3\" size=\"1\">");           
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr3\"checked>");
             out.println(" <label for=\"cantidad3\" class=\"control-label\">Cantidad</label>");
@@ -189,7 +171,13 @@ public class Computacion extends HttpServlet {
                 + "  </body>\n"
                 + "</html>"
     );
-
+        /*Estableciendo atributos*/
+        for (int i = 0; i < prod.length; i++) {
+            prod[i] = (String)request.getParameter("pr"+i);
+            cant[i] = (String)request.getParameter("cantidad"+i);
+            sesion.setAttribute("pr" + i, prod[i]); // Estableciendo el checkbox marcado
+            sesion.setAttribute("cantidad"+i, cant[i]); // Estableciendo la cantidad ingresada
+        }
     }
 
     @Override
