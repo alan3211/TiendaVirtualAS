@@ -17,17 +17,17 @@ public class Electrodomestico extends HttpServlet {
         String[] prod = new String[12];    //Nombre de los productos
         String[] cant = new String[12];    //Valor de la cantidad       
         PrintWriter out = response.getWriter();
-        HttpSession sesion = request.getSession();       
-       /*Recuperando atributos*/        
+        HttpSession sesion = request.getSession();
+        /*Recuperando atributos*/
         for (int i = 0; i < prod.length; i++) {
-            if(sesion.getAttribute("pr"+i) != null){
-            prod[i] = (String) sesion.getAttribute("pr"+i); //Obteniendo el checkbox del producto
-            cant[i] = (String) sesion.getAttribute("cantidad"+i); //Obteniendo la cantidad asociada
-            }   
-        }             
+            if (sesion.getAttribute("pr" + i) != null) {
+                prod[i] = (String) sesion.getAttribute("pr" + i); //Obteniendo el checkbox del producto
+                cant[i] = (String) sesion.getAttribute("cantidad" + i); //Obteniendo la cantidad asociada
+            }
+        }
         out.println("<!DOCTYPE html>\n"
                 + "<html>\n"
-                + "    <head>\n"    
+                + "    <head>\n"
                 + "        <meta name=\"author\" content=\"Alan Hernandez\">\n"
                 + "        <meta name=\"description\" content=\"Tienda Virtual\">\n"
                 + "        <meta name=\"keywords\" content=\"Tienda Virtual Alan WAD\">\n"
@@ -41,15 +41,19 @@ public class Electrodomestico extends HttpServlet {
                 + "        <script src=\"js/Enviar.js\"></script>             \n"
                 + "    </head>\n"
                 + "    <body>\n"
-                + "            <!--Encabezado-->\n"
-                + "                <header>\n"
-                + "                        <div class=\"container\">                  \n"
-                + "                                        <img src=\"./img/logo.png\" alt=\"Logo\" class=\"Logo img-rounded img-responsive\"/>\n"
-                + "                                        <h1 class=\"bienvenida text-left\">Bienvenido al Departamento de Electrodomesticos</h1>                \n"
-                + "                                        <p class=\"slogan text-left\">Aquí encontrarás los productos más modernos del mercado.</p>\n"
-                + "                                        <a href=\"javascript:Calcula()\" class=\"enlaces col-sm-2\"><span class=\"glyphicon glyphicon-log-out\"></span>CheckOut</a>                                       \n"
-                + "                        </div>                       \n"
-                + "                </header>                       \n"
+                + " <!--Encabezado-->\n"
+                + "                       <header>\n"
+                + "                               <div class=\"container\">\n"
+                + "                                          <div class=\"row\">\n"
+                + "                                               <img src=\"./img/logo.png\" alt=\"Logo\" class=\"img-responsive col-md-1\">\n"
+                + "                                               <h1 class=\"col-md-11\">Bienvenido a WAD-Store</h1>                                              \n"
+                + "                                          </div>                                          \n"
+                + "                                           <div class=\"row\">\n"
+                + "                                                <p class=\"col-md-11\">Aquí encontrarás los mejores precios</p>                                                                                         \n"
+                + "                                                <button class=\"col-md-1 btn btn-default\" type=\"button\" style=\"bottom:30px;\" onclick='javascript:Calcula()'>Checkout<span class=\"glyphicon glyphicon-log-out\"></span></button> \n"
+                + "                                           </div>                                        \n"
+                + "                               </div>\n"
+                + "                       </header>"
                 + "                <!--Navegacion-->\n"
                 + "                <div class=\"container\">                \n"
                 + "                        <nav class=\" navbar navbar-default nav-justified\">\n"
@@ -88,14 +92,14 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                    <p>Llevate esta lavadora  para un lavado increíble</p>\n"
                 + "                                                    <p>$9,000</p>\n"
                 + "                                                    <label for=\"pr4\">Agregar</label>");
-        if (prod[4] == null && cant[4] == null) {           
-                out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr4\">");
-                out.println(" <label for=\"cantidad4\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad4\" size=\"1\" value = \"1\">");            
+        if (prod[4] == null && cant[4] == null) {
+            out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr4\">");
+            out.println(" <label for=\"cantidad4\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad4\" size=\"1\" value = \"1\">");
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr4\"checked>");
             out.println(" <label for=\"cantidad4\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad4\" size=\"1\" value = '" + cant[4] + "'>");            
+            out.println("<input type=\"text\" name=\"cantidad4\" size=\"1\" value = '" + cant[4] + "'>");
         }
         out.println("                             </div>\n"
                 + "                                            <div class=\"col-md-3\">\n"
@@ -104,14 +108,14 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                       <p>Para realizar tus jugos  tu gusto</p>\n"
                 + "                                                       <p>$2,000</p>\n"
                 + "                                                       <label for=\"pr5\">Agregar</label>");
-        if (prod[5] == null && cant[5] == null) {          
-                out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr5\">");
-                out.println(" <label for=\"cantidad5\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad5\" size=\"1\" value = \"1\">");            
+        if (prod[5] == null && cant[5] == null) {
+            out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr5\">");
+            out.println(" <label for=\"cantidad5\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad5\" size=\"1\" value = \"1\">");
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr5\"checked>");
             out.println(" <label for=\"cantidad5\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad5\" size=\"1\" value = '" + cant[5] + "'>");            
+            out.println("<input type=\"text\" name=\"cantidad5\" size=\"1\" value = '" + cant[5] + "'>");
         }
         out.println("                                </div>\n"
                 + "                                            <div class=\"col-md-3\">\n"
@@ -120,14 +124,14 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                       <p>Ideal para oficina o simplemente en casa</p>\n"
                 + "                                                       <p>$3,000</p>\n"
                 + "                                                       <label for=\"pr6\">Agregar</label>");
-        if (prod[6] == null && cant[6] == null) {           
-                out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr6\">");
-                out.println(" <label for=\"cantidad6\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad6\" size=\"1\" value = \"1\">");            
+        if (prod[6] == null && cant[6] == null) {
+            out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr6\">");
+            out.println(" <label for=\"cantidad6\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad6\" size=\"1\" value = \"1\">");
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr6\"checked>");
             out.println(" <label for=\"cantidad6\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad6\" size=\"1\" value = '" + cant[6] + "'>");          
+            out.println("<input type=\"text\" name=\"cantidad6\" size=\"1\" value = '" + cant[6] + "'>");
         }
         out.println("                               </div>\n"
                 + "                                            <div class=\"col-md-3\">\n"
@@ -136,27 +140,28 @@ public class Electrodomestico extends HttpServlet {
                 + "                                                       <p>Para guardar tus alimentos con ahorro de energia</p>\n"
                 + "                                                       <p>$14,000</p>\n"
                 + "                                                       <label for=\"pr7\">Agregar</label>");
-        if (prod[7] == null && cant[7] == null) {           
-                out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr7\">");
-                out.println(" <label for=\"cantidad7\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad7\" size=\"1\" value = \"1\">");            
+        if (prod[7] == null && cant[7] == null) {
+            out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr7\">");
+            out.println(" <label for=\"cantidad7\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad7\" size=\"1\" value = \"1\">");
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr7\"checked>");
             out.println(" <label for=\"cantidad7\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad7\" size=\"1\" value = '" + cant[7] + "'>");             
+            out.println("<input type=\"text\" name=\"cantidad7\" size=\"1\" value = '" + cant[7] + "'>");
         }
         for (int i = 0; i < prod.length; i++) {
-                    if(i < 4 || i > 7){
-                            if(prod[i] == null){
-                                out.println("<input type=\"checkbox\" name=\"pr"+i+"\">\n");
-                                out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \"1\">"); 
-                            }
-                            else{
-                                out.println("<input type=\"checkbox\" name=\"pr"+i+"\" checked>\n");
-                                out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \""+cant[i]+"\">");
-                            }
-                    }else continue;                                                 
-         }             
+            if (i < 4 || i > 7) {
+                if (prod[i] == null) {
+                    out.println("<input type=\"checkbox\" name=\"pr" + i + "\">\n");
+                    out.println("<input type=\"text\" name=\"cantidad" + i + "\" size=\"1\" value = \"1\">");
+                } else {
+                    out.println("<input type=\"checkbox\" name=\"pr" + i + "\" checked>\n");
+                    out.println("<input type=\"text\" name=\"cantidad" + i + "\" size=\"1\" value = \"" + cant[i] + "\">");
+                }
+            } else {
+                continue;
+            }
+        }
         out.println("                 </div>\n"
                 + "<script>javascript:ocultaE()</script>"
                 + "                            </form>  \n"
@@ -171,26 +176,26 @@ public class Electrodomestico extends HttpServlet {
                 + "                    <div class=\"container\">                            \n"
                 + "                                    <p class=\"text-right piepag\">WAD-Store &COPY; Todos los derechos reservados 2016</p>                                            \n"
                 + "                    </div>\n"
-                + "            </footer>\n"                          
+                + "            </footer>\n"
                 + "    </body>\n"
                 + "</html>"
-    );
+        );
         /*Estableciendo atributos*/
         for (int i = 0; i < prod.length; i++) {
-            prod[i] = (String)request.getParameter("pr"+i);
-            cant[i] = (String)request.getParameter("cantidad"+i);
+            prod[i] = (String) request.getParameter("pr" + i);
+            cant[i] = (String) request.getParameter("cantidad" + i);
             sesion.setAttribute("pr" + i, prod[i]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad"+i, cant[i]); // Estableciendo la cantidad ingresada
+            sesion.setAttribute("cantidad" + i, cant[i]); // Estableciendo la cantidad ingresada
         }
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
 
-    private void rellenacantidad(String[]nomcan) {
+    private void rellenacantidad(String[] nomcan) {
         for (int i = 0; i < nomcan.length; i++) {
             nomcan[i] = "can" + i;
         }

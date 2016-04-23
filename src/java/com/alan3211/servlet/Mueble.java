@@ -17,15 +17,15 @@ public class Mueble extends HttpServlet {
         String[] prod = new String[12];    //Nombre de los productos
         String[] cant = new String[12];    //Valor de la cantidad     
         PrintWriter out = response.getWriter();
-        HttpSession sesion = request.getSession();       
-        /*Recuperando atributos*/        
+        HttpSession sesion = request.getSession();
+        /*Recuperando atributos*/
         for (int i = 0; i < prod.length; i++) {
-            if(sesion.getAttribute("pr"+i) != null){
-            prod[i] = (String) sesion.getAttribute("pr"+i); //Obteniendo el checkbox del producto
-            cant[i] = (String) sesion.getAttribute("cantidad"+i); //Obteniendo la cantidad asociada
-            }   
-        }             
-        
+            if (sesion.getAttribute("pr" + i) != null) {
+                prod[i] = (String) sesion.getAttribute("pr" + i); //Obteniendo el checkbox del producto
+                cant[i] = (String) sesion.getAttribute("cantidad" + i); //Obteniendo la cantidad asociada
+            }
+        }
+
         out.println("<!DOCTYPE html>\n"
                 + "<html>\n"
                 + "    <head>\n"
@@ -42,15 +42,19 @@ public class Mueble extends HttpServlet {
                 + "        <script src=\"js/Enviar.js\"></script>           \n"
                 + "    </head>\n"
                 + "    <body>\n"
-                + "              <!--Encabezado-->\n"
-                + "                <header>\n"
-                + "                        <div class=\"container\">                  \n"
-                + "                                        <img src=\"./img/logo.png\" alt=\"Logo\" class=\"Logo img-rounded img-responsive\"/>\n"
-                + "                                        <h1 class=\"bienvenida text-left\">Bienvenido al Departamento de Mueblería</h1>                \n"
-                + "                                        <p class=\"slogan text-left\">Aquí encontrarás los productos más modernos del mercado.</p>\n"
-                + "                                        <a href=\"javascript:Calcula()\" class=\"enlaces col-sm-2\"><span class=\"glyphicon glyphicon-log-out\"></span>CheckOut</a>                                       \n"
-                + "                        </div>                       \n"
-                + "                </header>           \n"
+                + " <!--Encabezado-->\n"
+                + "                       <header>\n"
+                + "                               <div class=\"container\">\n"
+                + "                                          <div class=\"row\">\n"
+                + "                                               <img src=\"./img/logo.png\" alt=\"Logo\" class=\"img-responsive col-md-1\">\n"
+                + "                                               <h1 class=\"col-md-11\">Bienvenido a WAD-Store</h1>                                              \n"
+                + "                                          </div>                                          \n"
+                + "                                           <div class=\"row\">\n"
+                + "                                                <p class=\"col-md-11\">Aquí encontrarás los mejores precios</p>                                                                                         \n"
+                + "                                                <button class=\"col-md-1 btn btn-default\" type=\"button\" style=\"bottom:30px;\" onclick='javascript:Calcula()'>Checkout<span class=\"glyphicon glyphicon-log-out\"></span></button> \n"
+                + "                                           </div>                                        \n"
+                + "                               </div>\n"
+                + "                       </header>"
                 + "            <div class=\"container\">                \n"
                 + "                    <nav class=\" navbar navbar-default nav-justified\">\n"
                 + "                                 <div class=\"container-fluid\">\n"
@@ -87,14 +91,14 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Llevatelo para que tu televisión se vea espectacular.</p>\n"
                 + "                                                           <p>$8,000</p>\n"
                 + "                                                           <label for=\"pr8\">Agregar</label>");
-        if (prod[8] == null && cant[8] == null) {         
-                out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr8\">");
-                out.println(" <label for=\"cantidad8\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad8\" size=\"1\" value = \"1\">");            
+        if (prod[8] == null && cant[8] == null) {
+            out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr8\">");
+            out.println(" <label for=\"cantidad8\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad8\" size=\"1\" value = \"1\">");
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr8\"checked>");
             out.println(" <label for=\"cantidad8\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad8\" size=\"1\" value = '" + cant[8] + "'>");           
+            out.println("<input type=\"text\" name=\"cantidad8\" size=\"1\" value = '" + cant[8] + "'>");
         }
         out.println("                                                </div>\n"
                 + "                                                <div class=\"col-md-3\">\n"
@@ -103,15 +107,15 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Para guardar tus libros o documentos atu gusto</p>\n"
                 + "                                                           <p>$2,800</p>\n"
                 + "                                                           <label for=\"pr9\">Agregar</label>");
-        if (prod[9] == null && cant[9] == null) {        
-                out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr9\">");
-                out.println(" <label for=\"cantidad9\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad9\" size=\"1\" value = \"1\">");
-            
+        if (prod[9] == null && cant[9] == null) {
+            out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr9\">");
+            out.println(" <label for=\"cantidad9\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad9\" size=\"1\" value = \"1\">");
+
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr9\"checked>");
             out.println(" <label for=\"cantidad9\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad9\" size=\"1\" value = '" + cant[9] + "'>");            
+            out.println("<input type=\"text\" name=\"cantidad9\" size=\"1\" value = '" + cant[9] + "'>");
         }
         out.println("                                                </div>\n"
                 + "                                                <div class=\"col-md-3\">\n"
@@ -120,15 +124,15 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Ideal para que tu  casa se vea elegante</p>\n"
                 + "                                                           <p>$7,000</p>\n"
                 + "                                                           <label for=\"pr10\">Agregar</label>");
-        if (prod[10] == null && cant[10] == null) {          
-                out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr10\">");
-                out.println(" <label for=\"cantidad10\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad10\" size=\"1\" value = \"1\">");
-            
+        if (prod[10] == null && cant[10] == null) {
+            out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr10\">");
+            out.println(" <label for=\"cantidad10\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad10\" size=\"1\" value = \"1\">");
+
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr10\"checked>");
             out.println(" <label for=\"cantidad10\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad10\" size=\"1\" value = '" + cant[10] + "'>");           
+            out.println("<input type=\"text\" name=\"cantidad10\" size=\"1\" value = '" + cant[10] + "'>");
         }
         out.println("                                                </div>\n"
                 + "                                                <div class=\"col-md-3\">\n"
@@ -137,22 +141,22 @@ public class Mueble extends HttpServlet {
                 + "                                                           <p>Especialmente para tu sala moderna</p>\n"
                 + "                                                           <p>$10,000</p>\n"
                 + "                                                           <label for=\"pr11\">Agregar</label>");
-        if (prod[11] == null && cant[11] == null) {          
-                out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr11\">");
-                out.println(" <label for=\"cantidad11\" class=\"control-label\">Cantidad</label>");
-                out.println("<input type=\"text\" name=\"cantidad11\" size=\"1\" value = \"1\">");           
+        if (prod[11] == null && cant[11] == null) {
+            out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr11\">");
+            out.println(" <label for=\"cantidad11\" class=\"control-label\">Cantidad</label>");
+            out.println("<input type=\"text\" name=\"cantidad11\" size=\"1\" value = \"1\">");
         } else {
             out.println("<input type=\"checkbox\" class=\"checkbox checkbox-inline\" name=\"pr11\"checked>");
             out.println(" <label for=\"cantidad11\" class=\"control-label\">Cantidad</label>");
-            out.println("<input type=\"text\" name=\"cantidad11\" size=\"1\" value = '" + cant[11] + "'>");           
+            out.println("<input type=\"text\" name=\"cantidad11\" size=\"1\" value = '" + cant[11] + "'>");
         }
         for (int i = 0; i < 8; i++) {
             if (prod[i] == null) {
                 out.println("<input type=\"checkbox\" name=\"pr" + i + "\" >\n");
-                  out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \"1\">"); 
+                out.println("<input type=\"text\" name=\"cantidad" + i + "\" size=\"1\" value = \"1\">");
             } else {
                 out.println("<input type=\"checkbox\" name=\"pr" + i + "\" checked>\n");
-                out.println("<input type=\"text\" name=\"cantidad"+i+"\" size=\"1\" value = \""+cant[i]+"\">");
+                out.println("<input type=\"text\" name=\"cantidad" + i + "\" size=\"1\" value = \"" + cant[i] + "\">");
             }
         }
         out.println("                                                </div>\n"
@@ -169,15 +173,15 @@ public class Mueble extends HttpServlet {
                 + "                    <div class=\"container\">                            \n"
                 + "                                    <p class=\"text-right piepag\">WAD-Store &COPY; Todos los derechos reservados 2016</p>                                            \n"
                 + "                    </div>\n"
-                + "            </footer>\n"                
+                + "            </footer>\n"
                 + "    </body>\n"
                 + "</html>");
         /*Estableciendo atributos*/
         for (int i = 0; i < prod.length; i++) {
-            prod[i] = (String)request.getParameter("pr"+i);
-            cant[i] = (String)request.getParameter("cantidad"+i);
+            prod[i] = (String) request.getParameter("pr" + i);
+            cant[i] = (String) request.getParameter("cantidad" + i);
             sesion.setAttribute("pr" + i, prod[i]); // Estableciendo el checkbox marcado
-            sesion.setAttribute("cantidad"+i, cant[i]); // Estableciendo la cantidad ingresada
+            sesion.setAttribute("cantidad" + i, cant[i]); // Estableciendo la cantidad ingresada
         }
     }
 
@@ -187,7 +191,7 @@ public class Mueble extends HttpServlet {
         doGet(request, response);
     }
 
-    private void rellenacantidad(String[]nomcan) {
+    private void rellenacantidad(String[] nomcan) {
         for (int i = 0; i < nomcan.length; i++) {
             nomcan[i] = "can" + i;
         }

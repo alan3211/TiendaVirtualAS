@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class Inicio extends HttpServlet {
-    
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset = UTF-8");
@@ -28,17 +28,20 @@ public class Inicio extends HttpServlet {
                 + "        <script src=\"./js/jquery-2.2.3.min.js\"></script>\n"
                 + "    </head>\n"
                 + "    <body>\n"
-                + "        <header>\n"
-                + "            <div class=\"container  row\">                \n"
-                + "              <div class=\" col-xs-12 col-sm-12 col-md-12 col-lg-12\">                \n"
-                + "                <img src=\"./img/logo.png\" alt=\"Logo\" class=\"Logo img-rounded img-responsive\"/>\n"
-                + "                <h1 class=\"bienvenida\">Bienvenido a WAD-Store</h1>                \n"
-                + "                <p class=\"slogan\">Aquí encontrarás los productos más modernos del mercado.</p>\n"
-                + "                <hr>\n"
-                + "            </div>                       \n"
-                + "            </div>                       \n"
-                + "        </header>        \n"
+                + " <!--Encabezado-->\n"
+                + "                       <header>\n"
+                + "                               <div class=\"container\">\n"
+                + "                                          <div class=\"row\">\n"
+                + "                                               <img src=\"./img/logo.png\" alt=\"Logo\" class=\"img-responsive col-md-1\">\n"
+                + "                                               <h1 class=\"col-md-11\">Bienvenido a WAD-Store</h1>                                              \n"
+                + "                                          </div>                                          \n"
+                + "                                           <div class=\"row\">\n"
+                + "                                                <p class=\"col-md-11\">Aquí encontrarás los mejores precios</p>                                                                                         \n"                                                               
+                + "                                           </div>                                        \n"
+                + "                               </div>\n"
+                + "                       </header>"
                 + "        <br>\n"
+                + "        <br>        \n"                
                 + "        <section class=\"container\">\n"
                 + "            <div class=\"row\">\n"
                 + "                <article class=\"col-xs-12 col-sm-8 col-md-9 col-lg-6\">\n"
@@ -59,17 +62,17 @@ public class Inicio extends HttpServlet {
                 + "        <br>        \n"
                 + "        <footer>\n"
                 + "            <div class=\"container\">\n"
-                + "                            <p class=\"text-center piepag\">WAD-Store &COPY; Todos los derechos reservados 2016</p>                \n"
+                + "                            <p class=\"text-right lead\">WAD-Store &COPY; Todos los derechos reservados 2016</p>                \n"
                 + "            </div>\n"
                 + "        </footer>\n"
                 + "    </body>\n"
                 + "</html>");
         out.close();
     }
-    
+
     @Override
-    public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
-    
+
 }
